@@ -61,6 +61,9 @@ coverage/
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
+# gh-pages cache
+gh-pages/
+
 # OS generated files
 Thumbs.db
 ehthumbs.db
