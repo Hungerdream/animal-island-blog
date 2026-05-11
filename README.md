@@ -1,6 +1,8 @@
-# KAI's Island
+# Island
 
-个人技术博客，展示文章与 UI 组件库。
+个人博客，展示文章。
+
+预览地址： [https://guokaigdg.github.io/animal-blog/](https://guokaigdg.github.io/animal-blog/)
 
 ## 技术栈
 
@@ -30,29 +32,14 @@ npm run preview
 
 ```
 src/
-├── components/       # 通用组件
 ├── pages/
 │   ├── Home/        # 博客首页
-│   ├── Post/        # 文章详情页
-│   └── Components/  # 组件演示页面
-│       ├── button/
-│       ├── input/
-│       ├── switch/
-│       ├── modal/
-│       ├── card/
-│       ├── collapse/
-│       ├── cursor/
-│       ├── divider/
-│       ├── footer/
-│       ├── phone/
-│       ├── time/
-│       └── typewriter/
+│   └── Post/        # 文章详情页
 └── App.tsx          # 应用入口
 ```
 
 ## 功能
 
 - 博客文章展示
-- 组件库演示
 - 暗色模式切换
 - 邮件订阅
