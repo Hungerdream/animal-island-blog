@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Button, Card, Divider, Footer } from "animal-island-ui";
+import { Button, Card, Divider, Footer, Loading } from "animal-island-ui";
 import { getPostById, posts } from "../Home/posts";
 import "./Post.less";
 
@@ -8,9 +8,13 @@ function Post() {
     const { id = "" } = useParams();
     const navigate = useNavigate();
     const post = getPostById(id);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "auto" });
+        setIsLoading(true);
+        const timer = setTimeout(() => setIsLoading(false), 1500);
+        return () => clearTimeout(timer);
     }, [id]);
 
     if (!post) {
@@ -31,6 +35,9 @@ function Post() {
 
     return (
         <div className="post-page">
+            <Loading
+                active={isLoading}
+                style={{ position: "fixed", left: 0, top: 0, zIndex: 9999999, height: "100vh", width: "100vw" }} />
             <div className="post-back">
                 <Button type="text" onClick={() => navigate("/")}>← 記事一覧に戻る</Button>
             </div>
