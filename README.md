@@ -2,7 +2,7 @@
 
 个人博客，展示文章。
 
-预览地址： [https://guokaigdg.github.io/animal-blog/](https://guokaigdg.github.io/animal-blog/)
+预览地址： [https://guokaigdg.github.io/animal-island-blog/](https://guokaigdg.github.io/animal-island-blog/)
 
 ## 技术栈
 
