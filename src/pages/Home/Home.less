@@ -70,6 +70,11 @@
         font-size: 18px;
         font-weight: 800;
         letter-spacing: 0.3px;
+        color: #794f27;
+
+        .blog--dark & {
+            color: #ffffff;
+        }
     }
 
     .blog-logo-sub {
@@ -77,6 +82,12 @@
         opacity: 0.55;
         font-style: italic;
         letter-spacing: 0.4px;
+        color: #8a7b66;
+
+        .blog--dark & {
+            color: #e0d5c0;
+            opacity: 1;
+        }
     }
 
     .blog-nav {
@@ -90,7 +101,7 @@
             gap: 6px;
             padding: 6px 12px;
             border-radius: 999px;
-            color: inherit;
+            color: #794f27;
             opacity: 0.75;
             text-decoration: none;
             font-weight: 600;
@@ -99,6 +110,11 @@
 
             span {
                 font-size: 14px;
+            }
+
+            .blog--dark & {
+                color: #ffffff;
+                opacity: 1;
             }
 
             &:hover {
@@ -114,6 +130,30 @@
         display: flex;
         align-items: center;
         gap: 12px;
+    }
+
+    .blog-github-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        color: #794f27;
+        transition: all 0.2s;
+
+        &:hover {
+            background: rgba(121, 79, 39, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .blog--dark & {
+            color: #ffffff;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+        }
     }
 
     // ============ Hero ============
@@ -238,6 +278,19 @@
         margin-top: 20px;
     }
 
+    .blog-about-card {
+        cursor: pointer;
+    }
+
+    .blog-about-more {
+        margin-top: 16px;
+        text-align: right;
+        font-size: 14px;
+        font-weight: 600;
+        color: #794f27;
+        opacity: 0.7;
+    }
+
     // ============ Posts ============
     .blog-posts-grid {
         display: grid;
@@ -308,27 +361,44 @@
         gap: 12px;
     }
 
-    // ============ Subscribe ============
-    .blog-subscribe-row {
-        display: flex;
-        gap: 12px;
-        margin-bottom: 16px;
-
-        > :first-child {
-            flex: 1;
-        }
+    // ============ Friends ============
+    .blog-friends-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 16px;
     }
 
-    .blog-subscribe-opt {
+    .blog-friend-card {
         display: flex;
         align-items: center;
-        gap: 12px;
-        font-size: 14px;
+        gap: 16px;
+        cursor: pointer;
     }
 
-    .blog-subscribe-done {
-        padding: 4px;
-        line-height: 1.8;
+    .blog-friend-avatar {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .blog-friend-info {
+        h3 {
+            margin: 0 0 4px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 0;
+            font-size: 13px;
+            opacity: 0.75;
+        }
     }
 }
 
@@ -367,10 +437,6 @@
         }
 
         .blog-about-inner {
-            flex-direction: column;
-        }
-
-        .blog-subscribe-row {
             flex-direction: column;
         }
 

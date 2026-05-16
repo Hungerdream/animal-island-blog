@@ -20,10 +20,10 @@ function Post() {
     if (!post) {
         return (
             <div className="post-page">
-                <Button onClick={() => navigate("/")}>← ホームに戻る</Button>
+                <Button onClick={() => navigate("/")}>← 返回首页</Button>
                 <Card color="app-pink">
-                    <h2>記事が見つかりませんでした</h2>
-                    <p>お探しの記事は存在しないか、削除された可能性があります。</p>
+                    <h2>文章未找到</h2>
+                    <p>您要找的文章可能不存在或已被删除。</p>
                 </Card>
             </div>
         );
@@ -39,7 +39,7 @@ function Post() {
                 active={isLoading}
                 style={{ position: "fixed", left: 0, top: 0, zIndex: 9999999, height: "100vh", width: "100vw" }} />
             <div className="post-back">
-                <Button type="text" onClick={() => navigate("/")}>← 記事一覧に戻る</Button>
+                <Button type="text" onClick={() => navigate("/")}>← 返回文章列表</Button>
             </div>
 
             <Card color={post.color} className="post-hero">
@@ -70,7 +70,7 @@ function Post() {
             </article>
 
             <Card color="app-yellow" className="post-takeaways">
-                <h3>🌿 この記事のポイント</h3>
+                <h3>🌿 本文要点</h3>
                 <ul>
                     {post.takeaways.map((t) => (
                         <li key={t}>{t}</li>
