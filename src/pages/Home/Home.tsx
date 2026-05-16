@@ -23,10 +23,9 @@ const skills: { name: string; color: BlogColor }[] = [
 ];
 
 const stats: { label: string; value: string; color: BlogColor }[] = [
-    { label: "文章数", value: "42", color: "app-yellow" },
-    { label: "月度订阅者", value: "1.2k", color: "app-orange" },
-    { label: "岛上的居民", value: "2", color: "app-teal" },
-    { label: "OSS星标", value: "820", color: "yellow-green" },
+    { label: "文章数", value: String(posts.length), color: "app-yellow" },
+    { label: "建站天数", value: String(Math.floor((Date.now() - new Date("2026-01-01").getTime()) / (1000 * 60 * 60 * 24))), color: "app-orange" },
+    { label: "小镇居民", value: "2", color: "app-teal" },
 ];
 
 function Home() {
