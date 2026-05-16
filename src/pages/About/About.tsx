@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Divider, Footer, Loading } from "animal-island-ui";
-import type { BlogColor } from "../Home/posts";
+import type { BlogColor } from "../../posts";
 import "./About.less";
 
 const skills: { name: string; color: BlogColor }[] = [

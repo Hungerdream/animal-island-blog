@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Divider, Footer, Loading } from "animal-island-ui";
+import Giscus from "../../components/Giscus";
 import "./Friends.less";
 
 const friends: { name: string; url: string; desc: string; avatar: string }[] = [
@@ -83,6 +84,14 @@ function Friends() {
                         </Card>
                     ))}
                 </div>
+            </section>
+
+            <Divider type="line-teal" />
+            <section className="friends-section">
+                <h2 className="friends-section-title">留言板</h2>
+                <Card color="default">
+                    <Giscus />
+                </Card>
             </section>
 
             <Footer type="sea" />

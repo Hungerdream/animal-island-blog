@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Card, Divider, Footer, Loading } from "animal-island-ui";
-import { getPostById, posts } from "../Home/posts";
+import { getPostById, posts } from "../../posts";
 import "./Post.less";
 
 function Post() {

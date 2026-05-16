@@ -1,0 +1,143 @@
+.town-map-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.town-map-back {
+    margin-bottom: 16px;
+}
+
+.town-map-hero {
+    margin-bottom: 24px;
+    text-align: center;
+
+    h1 {
+        margin: 0 0 8px;
+        font-size: 28px;
+        font-weight: 800;
+    }
+
+    p {
+        margin: 0;
+        font-size: 15px;
+        opacity: 0.8;
+    }
+}
+
+.town-map-section {
+    margin-bottom: 24px;
+}
+
+.town-map-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #794f27;
+
+    .blog--dark & {
+        color: #e0d5c0;
+    }
+}
+
+.town-map-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    @media (max-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.town-map-card {
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+}
+
+.town-map-card-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.town-map-card-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.town-map-card-animal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    opacity: 0.75;
+}
+
+.town-map-card-animal-emoji {
+    font-size: 16px;
+}
+
+.town-map-card-animal-name {
+    font-weight: 600;
+}
+
+.town-map-card-desc {
+    font-size: 12px;
+    opacity: 0.6;
+    line-height: 1.4;
+}
+
+.town-map-residents {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    @media (max-width: 600px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.town-map-resident {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 16px;
+    background: #f8f8f0;
+    border-radius: 16px;
+
+    .blog--dark & {
+        background: #1a1a2e;
+    }
+}
+
+.town-map-resident-emoji {
+    font-size: 32px;
+}
+
+.town-map-resident-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #725d42;
+
+    .blog--dark & {
+        color: #e0d5c0;
+    }
+}
+
+.town-map-resident-home {
+    font-size: 11px;
+    color: #8a7b66;
+
+    .blog--dark & {
+        color: #a89b85;
+    }
+}

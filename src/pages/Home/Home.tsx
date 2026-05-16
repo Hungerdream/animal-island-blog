@@ -11,7 +11,7 @@ import {
     Switch,
     Typewriter,
 } from "animal-island-ui";
-import { posts, type BlogColor } from "./posts";
+import { posts, type BlogColor } from "../../posts";
 import "./Home.less";
 
 const skills: { name: string; color: BlogColor }[] = [
@@ -24,9 +24,9 @@ const skills: { name: string; color: BlogColor }[] = [
 
 const stats: { label: string; value: string; color: BlogColor }[] = [
     { label: "文章数", value: String(posts.length), color: "app-yellow" },
-    { label: "建站天数", value: String(Math.floor((Date.now() - new Date("2026-05-01").getTime()) / (1000 * 60 * 60 * 24))), color: "app-orange" },
-    { label: "小镇居民", value: "2", color: "app-teal" },
-    { label: "友情链接", value: "2", color: "yellow-green" },
+    { label: "建站天数", value: String(Math.floor((Date.now() - new Date("2026-05-16").getTime()) / (1000 * 60 * 60 * 24))), color: "app-orange" },
+    { label: "小镇居民", value: "6", color: "app-teal" },
+    { label: "友情链接", value: "1", color: "yellow-green" },
 ];
 
 function Home() {
@@ -34,6 +34,9 @@ function Home() {
     const [introOpen, setIntroOpen] = useState(() => !localStorage.getItem("visited"));
     const [dark, setDark] = useState(false);
     const [heroReplay] = useState(0);
+    const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+    const filteredPosts = selectedTag ? posts.filter((p) => p.tag === selectedTag) : posts;
 
     useEffect(() => {
         const hash = window.location.hash.replace("#", "");
@@ -57,8 +60,46 @@ function Home() {
                     </div>
                 </div>
                 <nav className="blog-nav">
+                    <div className="blog-nav-dropdown">
+                        <a
+                            href="#posts"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document
+                                    .getElementById("posts")
+                                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                            }}
+                        >
+                            <span>📖</span>
+                            文章
+                        </a>
+                        <div className="blog-nav-dropdown-menu">
+                            {[
+                                { tag: "Life", label: "生活日记", icon: "🏝️" },
+                                { tag: "Code", label: "代码文档", icon: "⌨️" },
+                                { tag: "Design", label: "工具分享", icon: "🧰" },
+                                { tag: "Music", label: "音乐分享", icon: "🎧" },
+                                { tag: "Thought", label: "读书笔记", icon: "📖" },
+                            ].map((cat) => (
+                                <a
+                                    key={cat.tag}
+                                    href={`#posts`}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setSelectedTag(cat.tag);
+                                        document
+                                            .getElementById("posts")
+                                            ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                    }}
+                                >
+                                    <span>{cat.icon}</span>
+                                    {cat.label}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
                     {[
-                        { id: "posts", icon: "📖", label: "文章" },
+                        { id: "map", icon: "🗺️", label: "小镇地图", path: "/map" },
                         { id: "faq", icon: "💬", label: "FAQ" },
                         { id: "friends", icon: "🔗", label: "友链", path: "/friends" },
                         { id: "about", icon: "🌱", label: "关于我", path: "/about" },
@@ -187,8 +228,14 @@ function Home() {
             <section id="posts" className="blog-section">
                 <h2 className="blog-section-title">最新文章</h2>
                 <p className="blog-section-sub">最近在想的事、踩过的坑、做过的实验。</p>
+                {selectedTag && (
+                    <div className="blog-filter-tag">
+                        <span>当前分类：{selectedTag}</span>
+                        <Button type="text" onClick={() => setSelectedTag(null)}>显示全部</Button>
+                    </div>
+                )}
                 <div className="blog-posts-grid">
-                    {posts.map((post) => (
+                    {filteredPosts.map((post) => (
                         <Card
                             key={post.id}
                             color={post.color}
