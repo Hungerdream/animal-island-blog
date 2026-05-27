@@ -13,9 +13,8 @@ interface MusicPlayerProps {
 }
 
 const defaultSongs: Song[] = [
-    { title: "岛屿之风", artist: "独立游戏OST", url: "", cover: "🎧" },
-    { title: "深夜Lo-fi", artist: "Lo-fi Hip Hop", url: "", cover: "🌙" },
-    { title: "海边黄昏", artist: "久石让", url: "", cover: "🌅" },
+    { title: "Town Theme RPG", artist: "cynicmusic", url: "/animal-island-blog/music/town-theme.mp3", cover: "🏘️" },
+    { title: "Woodland Fantasy", artist: "cynicmusic", url: "/animal-island-blog/music/woodland-fantasy.mp3", cover: "🌲" },
 ];
 
 function MusicPlayer({ songs = defaultSongs }: MusicPlayerProps) {

@@ -2,8 +2,7 @@ import { lazy, Suspense } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { Cursor } from "animal-island-ui";
 import BackToTop from "./components/BackToTop";
-// 音乐播放器组件，找到音乐链接后取消注释启用
-// import MusicPlayer from "./components/MusicPlayer";
+import MusicPlayer from "./components/MusicPlayer";
 
 // 路由懒加载
 const Home = lazy(() => import("./pages/Home/Home"));
@@ -27,8 +26,7 @@ function App() {
                 </Suspense>
             </Cursor>
             <BackToTop />
-            {/* 音乐播放器侧边栏，找到音乐链接后取消注释启用 */}
-            {/* <MusicPlayer /> */}
+            <MusicPlayer />
         </HashRouter>
     );
 }
