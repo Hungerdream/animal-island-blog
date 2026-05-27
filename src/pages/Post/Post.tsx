@@ -9,6 +9,7 @@ function Post() {
     const navigate = useNavigate();
     const post = getPostById(id);
     const [isLoading, setIsLoading] = useState(true);
+    const [activeHeading, setActiveHeading] = useState("");
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "auto" });
@@ -16,6 +17,26 @@ function Post() {
         const timer = setTimeout(() => setIsLoading(false), 1500);
         return () => clearTimeout(timer);
     }, [id]);
+
+    useEffect(() => {
+        if (!post) return;
+        const headings = document.querySelectorAll(".post-body h2");
+        if (headings.length === 0) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveHeading(entry.target.textContent || "");
+                    }
+                });
+            },
+            { rootMargin: "-80px 0px -70% 0px" }
+        );
+
+        headings.forEach((h) => observer.observe(h));
+        return () => observer.disconnect();
+    }, [post, isLoading]);
 
     if (!post) {
         return (
@@ -58,16 +79,45 @@ function Post() {
 
             <Divider type="line-teal" />
 
-            <article className="post-body">
-                {post.sections.map((section) => (
-                    <section key={section.heading}>
-                        <h2>{section.heading}</h2>
-                        {section.paragraphs.map((p, i) => (
-                            <p key={i}>{p}</p>
+            <div className="post-layout">
+                <article className="post-body">
+                    {post.sections.map((section) => (
+                        <section key={section.heading}>
+                            <h2>{section.heading}</h2>
+                            {section.paragraphs.map((p, i) => (
+                                <p key={i}>{p}</p>
+                            ))}
+                        </section>
+                    ))}
+                </article>
+
+                <aside className="post-toc">
+                    <div className="post-toc-title">此页内容 📄</div>
+                    <ul>
+                        {post.sections.map((section) => (
+                            <li
+                                key={section.heading}
+                                className={activeHeading === section.heading ? "active" : ""}
+                            >
+                                <a
+                                    href={`#${section.heading}`}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        const headings = document.querySelectorAll(".post-body h2");
+                                        headings.forEach((h) => {
+                                            if (h.textContent === section.heading) {
+                                                h.scrollIntoView({ behavior: "smooth", block: "start" });
+                                            }
+                                        });
+                                    }}
+                                >
+                                    {section.heading}
+                                </a>
+                            </li>
                         ))}
-                    </section>
-                ))}
-            </article>
+                    </ul>
+                </aside>
+            </div>
 
             <Card color="app-yellow" className="post-takeaways">
                 <h3>🌿 本文要点</h3>
@@ -93,7 +143,8 @@ function Post() {
                 ) : <span />}
             </div>
 
-            <Footer type="sea" />
+            <div className="post-spacer" />
+            <Footer type="tree" className="post-footer" />
         </div>
     );
 }
