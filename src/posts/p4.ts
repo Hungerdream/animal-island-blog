@@ -5,7 +5,7 @@ const p4: Post = {
     title: "读书笔记：番茄工作法图解",
     excerpt: "简单易行的时间管理方法，一次只做一件事。",
     body: "详细介绍了番茄工作法（Pomodoro Technique）这一高效的时间管理技巧。该书不仅解释了番茄工作法的基本概念和操作步骤，还通过丰富的插图帮助读者更直观地理解和应用这种方法。",
-    date: "2026-03-29",
+    date: "2026-05-16",
     tag: "Thought",
     color: "lime-green",
     readTime: "10分钟",

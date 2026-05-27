@@ -5,6 +5,7 @@ import Post from "./pages/Post/Post";
 import About from "./pages/About/About";
 import Friends from "./pages/Friends/Friends";
 import TownMap from "./pages/TownMap/TownMap";
+import NotFound from "./pages/NotFound/NotFound";
 import BackToTop from "./components/BackToTop";
 // 音乐播放器组件，找到音乐链接后取消注释启用
 // import MusicPlayer from "./components/MusicPlayer";
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/friends" element={<Friends />} />
                     <Route path="/map" element={<TownMap />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </Cursor>
             <BackToTop />
