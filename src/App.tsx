@@ -10,7 +10,6 @@ const Home = lazy(() => import("./pages/Home/Home"));
 const Post = lazy(() => import("./pages/Post/Post"));
 const About = lazy(() => import("./pages/About/About"));
 const Friends = lazy(() => import("./pages/Friends/Friends"));
-const TownMap = lazy(() => import("./pages/TownMap/TownMap"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 
 function App() {
@@ -23,7 +22,6 @@ function App() {
                         <Route path="/posts/:id" element={<Post />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/friends" element={<Friends />} />
-                        <Route path="/map" element={<TownMap />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </Suspense>

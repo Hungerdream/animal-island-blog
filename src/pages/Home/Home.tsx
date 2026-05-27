@@ -99,7 +99,6 @@ function Home() {
                         </div>
                     </div>
                     {[
-                        { id: "map", icon: "🗺️", label: "小镇地图", path: "/map" },
                         { id: "faq", icon: "💬", label: "FAQ" },
                         { id: "friends", icon: "🔗", label: "友链", path: "/friends" },
                         { id: "about", icon: "🌱", label: "关于我", path: "/about" },
